@@ -19,7 +19,7 @@ steps:
   inputs:
     containerRegistry: |
       try
-    repository: $(imageName)
+    repository: macoredroid/$(imageName)
     command: push
     tags: |
       test1
