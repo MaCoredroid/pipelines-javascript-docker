@@ -8,19 +8,17 @@ variables:
   imageName: 'pipelines-javascript-docker'
 
 steps:
+
+    
 - task: Docker@2
-  displayName: Build an image
+  displayName: Login to Docker Hub
   inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: app/Dockerfile
+    command: login
+    containerRegistry: try
 - task: Docker@2
-  displayName: Push image
+  displayName: Build and Push
   inputs:
-    containerRegistry: |
-      try
-    repository: macoredroid/$(imageName)
-    command: push
-    tags: |
-      test1
-      test2
+    command: buildAndPush
+    repository: macoredroid/pipelines-javascript-docker
+    tags: test1
+      
