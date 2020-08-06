@@ -18,7 +18,7 @@ steps:
   displayName: Push image
   inputs:
     containerRegistry: |
-      $(dockerHub)
+      try
     repository: $(imageName)
     command: push
     tags: |
